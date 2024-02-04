@@ -22,3 +22,7 @@ ul {
   list-style: none;
   text-align: start;
 }
+.github-link {
+  text-decoration: none;
+  color: black;
+}
