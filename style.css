@@ -21,9 +21,16 @@ input {
 ul {
   list-style: none;
   text-align: start;
-  margin: 0;
+  padding: 0;
 }
 .github-link {
   text-decoration: none;
   color: black;
+}
+.list-container {
+  max-height: 300px;
+  min-height: 300px;
+  overflow-y: auto;
+  font-size: 1.5rem;
+  padding: 15px;
 }
