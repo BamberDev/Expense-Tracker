@@ -19,49 +19,38 @@
       <h1 class="text-center m-3">
         <i class="fa-solid fa-calculator"></i> Expense Tracker
       </h1>
-      <h2 class="text-center m-3">You can spend:</h2>
+      <h2 id="balance" class="text-center m-3">You can spend:</h2>
     </header>
 
     <main class="content container text-center">
       <div class="row align border border-dark border-3 rounded">
         <div class="col-md border border-dark p-2">
           <h2>Income</h2>
-          <input id="" type="text" placeholder="Name" />
-          <input id="" type="number" placeholder="Number" />
-          <button class="btn btn-light btn-sm p-1">Add</button>
-          <div>
-            <ul class="border-top border-bottom border-dark border-2 m-2">
-              <li>
-                <span>Name</span>
-                <span>Amount</span>
-                <div>
-                  <button class="btn btn-light btn-sm edit-button">Edit</button>
-                  <button class="btn btn-light btn-sm delete-button">
-                    Delete
-                  </button>
-                  <button class="btn btn-light btn-sm hidden save-button">
-                    Save
-                  </button>
-                  <button class="btn btn-light btn-sm hidden cancel-button">
-                    Cancel
-                  </button>
-                </div>
-              </li>
-            </ul>
+          <input id="incomeName" type="text" placeholder="Name" />
+          <input id="incomeAmount" type="number" placeholder="Number" />
+          <button id="incomeButton" class="btn btn-light btn-sm p-1">
+            Add
+          </button>
+          <div
+            id="incomes"
+            class="border-top border-bottom border-dark border-2 m-2"
+          >
+            <ul id="income-list"></ul>
           </div>
           <h2 class="text-start m-1">Total:</h2>
         </div>
         <div class="col-md border border-dark p-2">
           <h2>Expenses</h2>
-          <input id="" type="text" placeholder="Name" />
-          <input id="" type="number" placeholder="Number" />
-          <button class="btn btn-light btn-sm p-1">Add</button>
-          <div>
-            <ul class="border-top border-bottom border-dark border-2 m-2">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-            </ul>
+          <input id="expenseName" type="text" placeholder="Name" />
+          <input id="expenseAmount" type="number" placeholder="Number" />
+          <button id="expenseButton" class="btn btn-light btn-sm p-1">
+            Add
+          </button>
+          <div
+            id="expenses"
+            class="border-top border-bottom border-dark border-2 m-2"
+          >
+            <ul id="expense-list"></ul>
           </div>
           <h2 class="text-start m-1">Total:</h2>
         </div>
