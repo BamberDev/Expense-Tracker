@@ -21,6 +21,7 @@ input {
 ul {
   list-style: none;
   text-align: start;
+  margin: 0;
 }
 .github-link {
   text-decoration: none;
