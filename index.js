@@ -31,9 +31,26 @@ function updateList(listId, items) {
   const list = document.getElementById(listId);
   list.innerHTML = "";
 
-  items.forEach((item) => {
+  items.forEach((item, index) => {
     const li = document.createElement("li");
-    li.textContent = `${item.name}: ${item.amount} PLN`;
+    li.textContent = `${item.name} - ${item.amount} PLN`;
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.classList.add("btn", "btn-secondary", "btn-sm");
+    deleteButton.addEventListener("click", () => deleteItem(listId, index));
+
+    li.appendChild(deleteButton);
     list.appendChild(li);
   });
+}
+
+function deleteItem(listId, index) {
+  if (listId === "income-list") {
+    incomes.splice(index, 1);
+    updateList("income-list", incomes);
+  } else if (listId === "expense-list") {
+    expenses.splice(index, 1);
+    updateList("expense-list", expenses);
+  }
 }
