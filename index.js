@@ -3,27 +3,51 @@ const expenses = [];
 const incomeButton = document.querySelector("#incomeButton");
 const expenseButton = document.querySelector("#expenseButton");
 
-function addIncome() {
-  const name = document.querySelector("#incomeName").value;
-  const amount = document.querySelector("#incomeAmount").value;
+function getInputValues(incomeOrExpense) {
+  const name = document.querySelector(`#${incomeOrExpense}Name`).value;
+  const amount = Number(
+    document.querySelector(`#${incomeOrExpense}Amount`).value
+  );
+  return { name, amount };
+}
 
+function addIncome() {
+  const { name, amount } = getInputValues("income");
   if (name && !isNaN(amount) && amount > 0) {
     incomes.push({ name, amount });
     updateList("income-list", incomes);
+  } else {
+    alert("Please enter valid name and amount.");
   }
 }
-incomeButton.addEventListener("click", addIncome);
+incomeButton.addEventListener("click", function () {
+  addIncome();
+  clearIncomeInputFields();
+});
+
+function clearIncomeInputFields() {
+  document.querySelector("#incomeName").value = "";
+  document.querySelector("#incomeAmount").value = "";
+}
 
 function addExpense() {
-  const name = document.getElementById("expenseName").value;
-  const amount = parseFloat(document.getElementById("expenseAmount").value);
-
+  const { name, amount } = getInputValues("expense");
   if (name && !isNaN(amount) && amount > 0) {
     expenses.push({ name, amount });
     updateList("expense-list", expenses);
+  } else {
+    alert("Please enter valid name and amount.");
   }
 }
-expenseButton.addEventListener("click", addExpense);
+expenseButton.addEventListener("click", function () {
+  addExpense();
+  clearExpenseInputFields();
+});
+
+function clearExpenseInputFields() {
+  document.querySelector("#expenseName").value = "";
+  document.querySelector("#expenseAmount").value = "";
+}
 
 function updateList(listId, items) {
   const list = document.getElementById(listId);
@@ -118,7 +142,7 @@ function saveEdit(li, nameInput, amountInput, listId, index) {
 
     updateList(listId, listId === "income-list" ? incomes : expenses);
   } else {
-    alert("Please enter correct name and amount.");
+    alert("Please enter valid name and amount.");
   }
 }
 
