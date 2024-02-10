@@ -181,5 +181,21 @@ function calculateBalance() {
   document.querySelector(
     "#total-expenses"
   ).textContent = `-${totalExpenses} PLN`;
-  document.querySelector("#balance").textContent = `${balance} PLN`;
+
+  const balanceElement = document.querySelector("#balance");
+  const balanceText = `${balance} PLN`;
+
+  if (balance > 0) {
+    balanceElement.textContent = `You can spend ${balance} PLN`;
+    balanceElement.classList.add("text-success");
+    balanceElement.classList.remove("text-danger", "text-dark");
+  } else if (balance < 0) {
+    balanceElement.textContent = `You are ${balance} PLN in debt`;
+    balanceElement.classList.add("text-danger");
+    balanceElement.classList.remove("text-success", "text-dark");
+  } else {
+    balanceElement.textContent = balanceText;
+    balanceElement.classList.add("text-dark");
+    balanceElement.classList.remove("text-danger", "text-success");
+  }
 }
