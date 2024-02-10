@@ -16,6 +16,7 @@ function addIncome() {
   if (name && !isNaN(amount) && amount > 0) {
     incomes.push({ name, amount });
     updateList("income-list", incomes);
+    calculateBalance();
   } else {
     alert("Please enter valid name and amount.");
   }
@@ -35,6 +36,7 @@ function addExpense() {
   if (name && !isNaN(amount) && amount > 0) {
     expenses.push({ name, amount });
     updateList("expense-list", expenses);
+    calculateBalance();
   } else {
     alert("Please enter valid name and amount.");
   }
@@ -75,6 +77,7 @@ function updateList(listId, items) {
     li.appendChild(editButton);
     li.appendChild(deleteButton);
   });
+  calculateBalance();
 }
 
 function deleteItem(listId, index) {
@@ -161,4 +164,22 @@ function cancelEdit(
   li.removeChild(saveButton);
   li.removeChild(cancelButton);
   li.appendChild(deleteButton);
+}
+
+function calculateBalance() {
+  const totalIncomes = incomes.reduce(
+    (total, income) => total + income.amount,
+    0
+  );
+  const totalExpenses = expenses.reduce(
+    (total, expense) => total + expense.amount,
+    0
+  );
+  const balance = totalIncomes - totalExpenses;
+
+  document.querySelector("#total-incomes").textContent = `${totalIncomes} PLN`;
+  document.querySelector(
+    "#total-expenses"
+  ).textContent = `-${totalExpenses} PLN`;
+  document.querySelector("#balance").textContent = `${balance} PLN`;
 }
