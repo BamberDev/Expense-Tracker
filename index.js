@@ -177,25 +177,31 @@ function calculateBalance() {
   );
   const balance = totalIncomes - totalExpenses;
 
-  document.querySelector("#total-incomes").textContent = `${totalIncomes} PLN`;
-  document.querySelector(
-    "#total-expenses"
-  ).textContent = `-${totalExpenses} PLN`;
+  const totalIncomesElement = document.querySelector("#total-incomes");
+  totalIncomesElement.textContent =
+    totalIncomes === 0 ? "" : `${totalIncomes} PLN`;
+
+  const totalExpensesElement = document.querySelector("#total-expenses");
+  totalExpensesElement.textContent =
+    totalExpenses === 0 ? "" : `-${totalExpenses} PLN`;
 
   const balanceElement = document.querySelector("#balance");
-  const balanceText = `${balance} PLN`;
 
-  if (balance > 0) {
-    balanceElement.textContent = `You can spend ${balance} PLN`;
-    balanceElement.classList.add("text-success");
-    balanceElement.classList.remove("text-danger", "text-dark");
-  } else if (balance < 0) {
-    balanceElement.textContent = `You are ${balance} PLN in debt`;
-    balanceElement.classList.add("text-danger");
-    balanceElement.classList.remove("text-success", "text-dark");
+  if (totalIncomes === 0 && totalExpenses === 0) {
+    balanceElement.textContent = "";
   } else {
-    balanceElement.textContent = balanceText;
-    balanceElement.classList.add("text-dark");
-    balanceElement.classList.remove("text-danger", "text-success");
+    if (balance > 0) {
+      balanceElement.textContent = `You can spend ${balance} PLN`;
+      balanceElement.classList.add("text-success");
+      balanceElement.classList.remove("text-danger", "text-dark");
+    } else if (balance < 0) {
+      balanceElement.textContent = `You are ${balance} PLN in debt`;
+      balanceElement.classList.add("text-danger");
+      balanceElement.classList.remove("text-success", "text-dark");
+    } else {
+      balanceElement.textContent = `0 PLN`;
+      balanceElement.classList.add("text-dark");
+      balanceElement.classList.remove("text-danger", "text-success");
+    }
   }
 }
