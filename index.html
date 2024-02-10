@@ -19,13 +19,13 @@
       <h1 class="text-center m-3">
         <i class="fa-solid fa-calculator"></i> Expense Tracker
       </h1>
-      <h2 id="balance" class="text-center m-3">You can spend:</h2>
+      <h2 class="text-center m-3">Balance: <span id="balance"></span></h2>
     </header>
 
     <main class="content container text-center p-3">
       <div class="row align border border-dark border-3 rounded">
         <div class="col-lg border border-dark p-2">
-          <h2>Income</h2>
+          <h2>Incomes</h2>
           <input id="incomeName" type="text" placeholder="Name" />
           <input id="incomeAmount" type="number" placeholder="Number" />
           <button id="incomeButton" class="btn btn-light btn-sm p-1">
@@ -37,7 +37,9 @@
           >
             <ul id="income-list"></ul>
           </div>
-          <h2 class="text-start m-1">Total:</h2>
+          <h2 class="text-start m-1">
+            Total: <span id="total-incomes" class="text-success"></span>
+          </h2>
         </div>
         <div class="col-lg border border-dark p-2">
           <h2>Expenses</h2>
@@ -52,7 +54,9 @@
           >
             <ul id="expense-list"></ul>
           </div>
-          <h2 class="text-start m-1">Total:</h2>
+          <h2 class="text-start m-1">
+            Total: <span id="total-expenses" class="text-danger"></span>
+          </h2>
         </div>
       </div>
     </main>
