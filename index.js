@@ -2,6 +2,16 @@ const incomes = [];
 const expenses = [];
 const incomeButton = document.querySelector("#incomeButton");
 const expenseButton = document.querySelector("#expenseButton");
+const selectCurrency = document.querySelector("#currency");
+
+let selectedCurrency = "PLN";
+
+selectCurrency.addEventListener("change", () => {
+  selectedCurrency = selectCurrency.value;
+  calculateBalance();
+  updateList("income-list", incomes);
+  updateList("expense-list", expenses);
+});
 
 function getInputValues(incomeOrExpense) {
   const name = document.querySelector(`#${incomeOrExpense}Name`).value;
@@ -21,7 +31,7 @@ function addIncome() {
     alert("Please enter valid name and amount.");
   }
 }
-incomeButton.addEventListener("click", function () {
+incomeButton.addEventListener("click", () => {
   addIncome();
   clearIncomeInputFields();
 });
@@ -41,7 +51,7 @@ function addExpense() {
     alert("Please enter valid name and amount.");
   }
 }
-expenseButton.addEventListener("click", function () {
+expenseButton.addEventListener("click", () => {
   addExpense();
   clearExpenseInputFields();
 });
@@ -58,7 +68,7 @@ function updateList(listId, items) {
   items.forEach((item, index) => {
     const li = document.createElement("li");
     const text = document.createElement("span");
-    text.textContent = `${item.name} - ${item.amount} PLN`;
+    text.textContent = `${item.name} - ${item.amount} ${selectedCurrency}`;
 
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
@@ -179,11 +189,11 @@ function calculateBalance() {
 
   const totalIncomesElement = document.querySelector("#total-incomes");
   totalIncomesElement.textContent =
-    totalIncomes === 0 ? "" : `${totalIncomes} PLN`;
+    totalIncomes === 0 ? "" : `${totalIncomes} ${selectedCurrency}`;
 
   const totalExpensesElement = document.querySelector("#total-expenses");
   totalExpensesElement.textContent =
-    totalExpenses === 0 ? "" : `-${totalExpenses} PLN`;
+    totalExpenses === 0 ? "" : `-${totalExpenses} ${selectedCurrency}`;
 
   const balanceElement = document.querySelector("#balance");
 
@@ -191,15 +201,15 @@ function calculateBalance() {
     balanceElement.textContent = "";
   } else {
     if (balance > 0) {
-      balanceElement.textContent = `You can spend ${balance} PLN`;
+      balanceElement.textContent = `You can spend ${balance} ${selectedCurrency}`;
       balanceElement.classList.add("text-success");
       balanceElement.classList.remove("text-danger", "text-dark");
     } else if (balance < 0) {
-      balanceElement.textContent = `You are ${balance} PLN in debt`;
+      balanceElement.textContent = `You are ${balance} ${selectedCurrency} in debt`;
       balanceElement.classList.add("text-danger");
       balanceElement.classList.remove("text-success", "text-dark");
     } else {
-      balanceElement.textContent = `0 PLN`;
+      balanceElement.textContent = `0 ${selectedCurrency}`;
       balanceElement.classList.add("text-dark");
       balanceElement.classList.remove("text-danger", "text-success");
     }
