@@ -30,8 +30,7 @@ ul {
   color: black;
 }
 .list-container {
-  max-height: 300px;
-  min-height: 300px;
+  height: 300px;
   overflow-y: auto;
   font-size: 1.5rem;
   padding: 15px;
