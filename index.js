@@ -14,9 +14,9 @@ selectCurrency.addEventListener("change", () => {
 });
 
 function getInputValues(incomeOrExpense) {
-  const name = document.querySelector(`#${incomeOrExpense}Name`).value;
+  const name = document.querySelector(`#${incomeOrExpense}-name`).value;
   const amount = Number(
-    document.querySelector(`#${incomeOrExpense}Amount`).value
+    document.querySelector(`#${incomeOrExpense}-amount`).value
   );
   return { name, amount };
 }
