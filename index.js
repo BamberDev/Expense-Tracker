@@ -1,7 +1,7 @@
 const incomes = [];
 const expenses = [];
-const incomeButton = document.querySelector("#incomeButton");
-const expenseButton = document.querySelector("#expenseButton");
+const incomeButton = document.querySelector("#income-button");
+const expenseButton = document.querySelector("#expense-button");
 const selectCurrency = document.querySelector("#currency");
 
 let selectedCurrency = "PLN";
@@ -37,8 +37,8 @@ incomeButton.addEventListener("click", () => {
 });
 
 function clearIncomeInputFields() {
-  document.querySelector("#incomeName").value = "";
-  document.querySelector("#incomeAmount").value = "";
+  document.querySelector("#income-name").value = "";
+  document.querySelector("#income-amount").value = "";
 }
 
 function addExpense() {
@@ -57,8 +57,8 @@ expenseButton.addEventListener("click", () => {
 });
 
 function clearExpenseInputFields() {
-  document.querySelector("#expenseName").value = "";
-  document.querySelector("#expenseAmount").value = "";
+  document.querySelector("#expense-name").value = "";
+  document.querySelector("#expense-amount").value = "";
 }
 
 function updateList(listId, items) {
