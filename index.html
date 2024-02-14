@@ -15,19 +15,15 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="container">
-      <h1 class="text-center m-3">
-        <i class="fa-solid fa-list-ul"></i> Expense Tracker
-      </h1>
-      <h4 class="text-center m-3">
-        Select currency
-        <select name="currency" id="currency">
-          <option value="PLN">PLN</option>
-          <option value="EUR">EUR</option>
-          <option value="USD">USD</option>
-        </select>
-      </h4>
-      <p class="text-center m-3 fs-2">Balance:</p>
+    <header class="container text-center">
+      <h1 class="m-3"><i class="fa-solid fa-list-ul"></i> Expense Tracker</h1>
+      <label class="fs-4" for="currency"> Select currency</label>
+      <select name="currency" id="currency">
+        <option value="PLN">PLN</option>
+        <option value="EUR">EUR</option>
+        <option value="USD">USD</option>
+      </select>
+      <p class="text-center fs-2">Balance:</p>
       <p id="balance" class="text-center m-3 fs-3"></p>
     </header>
 
@@ -56,9 +52,9 @@
           >
             <ul id="income-list" class="list-content"></ul>
           </div>
-          <h2 class="text-start m-1">
+          <p class="text-start fs-3 ms-3 mb-0">
             Total: <span id="total-incomes" class="text-success"></span>
-          </h2>
+          </p>
         </div>
         <div class="col-lg border border-dark p-2">
           <h2>Expenses</h2>
@@ -83,9 +79,9 @@
           >
             <ul id="expense-list" class="list-content"></ul>
           </div>
-          <h2 class="text-start m-1">
+          <p class="text-start fs-3 ms-3 mb-0">
             Total: <span id="total-expenses" class="text-danger"></span>
-          </h2>
+          </p>
         </div>
       </div>
     </main>
