@@ -14,13 +14,13 @@ body {
   flex: 1;
   padding: 10px;
 }
-input {
+.input-window {
   width: 100px;
   height: 25px;
   padding: 5px;
   border: 1px solid #000000;
 }
-ul {
+.list-content {
   list-style: none;
   text-align: start;
   padding: 0;
