@@ -107,8 +107,10 @@ function enableEdit(li, item, listId, index) {
 
   const nameInput = document.createElement("input");
   nameInput.value = item.name;
+  nameInput.classList.add("input-window");
   const amountInput = document.createElement("input");
   amountInput.value = item.amount;
+  amountInput.classList.add("input-window");
 
   const saveButton = document.createElement("button");
   saveButton.textContent = "Save";
