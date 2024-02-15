@@ -27,13 +27,13 @@ function addIncome() {
     incomes.push({ name, amount });
     updateList("income-list", incomes);
     calculateBalance();
+    clearIncomeInputFields();
   } else {
     alert("Please enter valid name and amount.");
   }
 }
 incomeButton.addEventListener("click", () => {
   addIncome();
-  clearIncomeInputFields();
 });
 
 function clearIncomeInputFields() {
@@ -47,13 +47,13 @@ function addExpense() {
     expenses.push({ name, amount });
     updateList("expense-list", expenses);
     calculateBalance();
+    clearExpenseInputFields();
   } else {
     alert("Please enter valid name and amount.");
   }
 }
 expenseButton.addEventListener("click", () => {
   addExpense();
-  clearExpenseInputFields();
 });
 
 function clearExpenseInputFields() {
