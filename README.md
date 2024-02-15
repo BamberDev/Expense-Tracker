@@ -11,3 +11,5 @@ Features
 
 Currency
 The default currency for this application is Polish Złoty (PLN).
+
+Live Demo: https://expensetracker-fc.netlify.app/
