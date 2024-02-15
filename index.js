@@ -109,19 +109,25 @@ function enableEdit(li, item, listId, index) {
   const editButton = li.childNodes[1];
   const deleteButton = li.lastChild;
 
+  const editForm = document.createElement("form");
+  editForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    saveEdit(li, nameInput, amountInput, listId, index);
+  });
+
   const nameInput = document.createElement("input");
   nameInput.value = item.name;
   nameInput.classList.add("input-window");
+
   const amountInput = document.createElement("input");
   amountInput.value = item.amount;
+  amountInput.type = "number";
   amountInput.classList.add("input-window");
 
   const saveButton = document.createElement("button");
+  saveButton.type = "submit";
   saveButton.textContent = "Save";
   saveButton.classList.add("btn", "btn-success", "btn-sm", "ms-1");
-  saveButton.addEventListener("click", () =>
-    saveEdit(li, nameInput, amountInput, listId, index)
-  );
 
   const cancelButton = document.createElement("button");
   cancelButton.textContent = "Cancel";
@@ -139,11 +145,13 @@ function enableEdit(li, item, listId, index) {
     )
   );
 
-  li.replaceChild(nameInput, text);
-  li.replaceChild(amountInput, editButton);
-  li.appendChild(saveButton);
-  li.appendChild(cancelButton);
+  editForm.appendChild(nameInput);
+  editForm.appendChild(amountInput);
+  li.replaceChild(editForm, text);
   li.removeChild(deleteButton);
+  li.removeChild(editButton);
+  editForm.appendChild(saveButton);
+  editForm.appendChild(cancelButton);
 }
 
 function saveEdit(li, nameInput, amountInput, listId, index) {
