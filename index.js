@@ -122,6 +122,7 @@ function enableEdit(li, item, listId, index) {
   const amountInput = document.createElement("input");
   amountInput.value = item.amount;
   amountInput.type = "number";
+  amountInput.step = "0.01";
   amountInput.classList.add("input-window");
 
   const saveButton = document.createElement("button");
