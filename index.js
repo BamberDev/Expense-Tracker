@@ -1,7 +1,7 @@
 const incomes = [];
 const expenses = [];
-const incomeButton = document.querySelector("#income-button");
-const expenseButton = document.querySelector("#expense-button");
+const incomeForm = document.querySelector("#income-form");
+const expenseForm = document.querySelector("#expense-form");
 const selectCurrency = document.querySelector("#currency");
 
 let selectedCurrency = "PLN";
@@ -32,7 +32,9 @@ function addIncome() {
     alert("Please enter valid name and amount.");
   }
 }
-incomeButton.addEventListener("click", () => {
+
+incomeForm.addEventListener("submit", function (event) {
+  event.preventDefault();
   addIncome();
 });
 
@@ -52,7 +54,9 @@ function addExpense() {
     alert("Please enter valid name and amount.");
   }
 }
-expenseButton.addEventListener("click", () => {
+
+expenseForm.addEventListener("submit", function (event) {
+  event.preventDefault();
   addExpense();
 });
 
